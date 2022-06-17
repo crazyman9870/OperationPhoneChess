@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "2m+3gS3hr9emrefTt1t5HBitboicqzciEIwt3/8JCFTDmUh5pCsleaWMHYb1JtsTh1JQ1vx7WguyKo+uBSLVBA==",
+  "success": true,
+  "projectFilePath": "D:\\GitHub\\OperationPhoneChess\\OperationPhoneChess.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\crazy\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\crazy\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.26\\microsoft.netcore.app.host.win-x64.3.1.26.nupkg.sha512"
+  ],
+  "logs": []
+}

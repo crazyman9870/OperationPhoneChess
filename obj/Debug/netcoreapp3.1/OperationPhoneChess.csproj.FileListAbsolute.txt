@@ -1,0 +1,6 @@
+D:\GitHub\OperationPhoneChess\obj\Debug\netcoreapp3.1\OperationPhoneChess.csprojAssemblyReference.cache
+D:\GitHub\OperationPhoneChess\obj\Debug\netcoreapp3.1\OperationPhoneChess.csproj.CoreCompileInputs.cache
+D:\GitHub\OperationPhoneChess\obj\Debug\netcoreapp3.1\OperationPhoneChess.AssemblyInfoInputs.cache
+D:\GitHub\OperationPhoneChess\obj\Debug\netcoreapp3.1\OperationPhoneChess.AssemblyInfo.cs
+D:\GitHub\OperationPhoneChess\obj\Debug\netcoreapp3.1\OperationPhoneChess.csproj.AssemblyReference.cache
+D:\GitHub\OperationPhoneChess\obj\Debug\netcoreapp3.1\OperationPhoneChess.GeneratedMSBuildEditorConfig.editorconfig
