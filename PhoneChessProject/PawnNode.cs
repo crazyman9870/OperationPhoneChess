@@ -1,9 +1,3 @@
-using System.Security.AccessControl;
-using System.Linq.Expressions;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Globalization;
-using System;
 using System.Collections.Generic;
 
 namespace PhoneChessProject

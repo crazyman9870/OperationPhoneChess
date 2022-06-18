@@ -6,13 +6,12 @@ namespace PhoneChessProject
     {
         static void Main(string[] args)
         {
-            for (var type = NodeType.Pawn; type <= NodeType.Pawn; type++)
+            for (var type = NodeType.Pawn; type <= NodeType.Knight; type++)
             {
-                Console.WriteLine(type);
-                Graph g = new Graph(type);
-                g.AddEdges();
-                g.findNumberCombinations();
-                Console.WriteLine(String.Format("Combinations for {0} = {1}", nameof(type), g.combinations));
+                Graph graph = new Graph(type);
+                graph.AddEdges();
+                graph.findNumberCombinations();
+                Console.WriteLine(String.Format("Combinations for {0} = {1}", type, graph.combinations));
             }
             Console.ReadKey();
         }

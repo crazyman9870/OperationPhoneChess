@@ -31,13 +31,14 @@ namespace PhoneChessProject
                 for (int col = 0; col < Columns; col++)
                 {
                     int val = _graph[row, col];
-                    ChessNode n = null;
+                    ChessNode node = null;
                     switch (type)
                     {
                         case NodeType.Pawn:
-                            n = new PawnNode(val, row, col);
+                            node = new PawnNode(val, row, col);
                             break;
                         case NodeType.Knight:
+                            node = new KnightNode(val, row, col);
                             break;
                         case NodeType.Bishop:
                             break;
@@ -50,9 +51,7 @@ namespace PhoneChessProject
                         default:
                             break;
                     }
-                    this._nodes[row].Add(n);
-
-                    Console.WriteLine(val.ToString());
+                    this._nodes[row].Add(node);
                 }
             }
         }

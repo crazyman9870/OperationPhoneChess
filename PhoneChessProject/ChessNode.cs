@@ -1,8 +1,3 @@
-using System.Net.NetworkInformation;
-using System.Xml.XPath;
-using System.Xml;
-using System.Threading;
-using System;
 using System.Collections.Generic;
 
 namespace PhoneChessProject
