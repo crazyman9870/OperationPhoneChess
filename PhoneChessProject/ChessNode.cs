@@ -17,6 +17,18 @@ namespace PhoneChessProject
         King
     }
 
+    public enum Direction
+    {
+        Up,
+        Down,
+        Left,
+        Right,
+        UpRight,
+        UpLeft,
+        DownRight,
+        DownLeft
+    }
+
     public abstract class ChessNode
     {
         //Value of the current node
@@ -27,22 +39,21 @@ namespace PhoneChessProject
         public int Column { get; set; }
 
         //List of reachable nodes from this node
-        public List<ChessNode> reachableNodes { get; set; }
+        public List<ChessNode> ReachableNodes { get; set; }
 
-        public bool multiDirection { get; set; }
+        public bool MultiDirection { get; set; }
 
-        public bool diagonal { get; set; }
+        public bool Diagonal { get; set; }
+
+        public Direction CurrentDirection { get; set; }
 
         public ChessNode(int value, int row, int column)
         {
             this.Value = value;
             this.Row = row;
             this.Column = column;
-            reachableNodes = new List<ChessNode>();
+            ReachableNodes = new List<ChessNode>();
         }
-
-        //Add a node to the list
-        public abstract bool AddReachableNode();
 
         /// <summary>
         /// Function to find reachable edges from this node within the grid.
@@ -52,6 +63,14 @@ namespace PhoneChessProject
         /// <param name="rowCount">Number of rows in the grid</param>
         /// <param name="colCount">Number of columns in the grid</param>
         public abstract void DiscoverEdges(List<List<ChessNode>> nodeGraph, int rowCount, int colCount);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nodeGraph"></param>
+        /// <param name="currentValue"></param>
+        /// <param name="count"></param>
+        public abstract void TraverseNode(List<List<ChessNode>> nodeGraph, string currentValue, ref int count);
 
         /// <summary>
         /// Given a current row and column, determines if it falls within the bounds of rowCount and columnCount of the grid

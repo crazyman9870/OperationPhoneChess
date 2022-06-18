@@ -9,6 +9,8 @@ namespace PhoneChessProject
         public const int Rows = 4;
         public const int Columns = 3;
 
+        public int combinations { get; private set; }
+
         private int[,] _graph = new int[Rows, Columns]
         {
             { 1, 2, 3 },
@@ -17,15 +19,15 @@ namespace PhoneChessProject
             { -1, 0, -1 }
         };
 
-        public List<List<ChessNode>> nodes;
+        private List<List<ChessNode>> _nodes;
 
         public Graph(NodeType type)
         {
-            nodes = new List<List<ChessNode>>();
+            _nodes = new List<List<ChessNode>>();
 
             for (int row = 0; row < Rows; row++)
             {
-                nodes.Add(new List<ChessNode>());
+                _nodes.Add(new List<ChessNode>());
                 for (int col = 0; col < Columns; col++)
                 {
                     int val = _graph[row, col];
@@ -48,7 +50,7 @@ namespace PhoneChessProject
                         default:
                             break;
                     }
-                    this.nodes[row].Add(n);
+                    this._nodes[row].Add(n);
 
                     Console.WriteLine(val.ToString());
                 }
@@ -62,14 +64,26 @@ namespace PhoneChessProject
             {
                 for (int col = 0; col < Columns; col++)
                 {
-                    nodes[row][col].DiscoverEdges(nodes, Rows, Columns);
+                    _nodes[row][col].DiscoverEdges(_nodes, Rows, Columns);
                 }
             }
         }
 
         public void findNumberCombinations()
         {
-
+            int count = 0;
+            for (int row = 0; row < Rows; row++)
+            {
+                for (int col = 0; col < Columns; col++)
+                {
+                    var node = _nodes[row][col];
+                    if (node.Value > 1)
+                    {
+                        node.TraverseNode(_nodes, "", ref count);
+                    }
+                }
+            }
+            combinations = count;
         }
     }
 }
