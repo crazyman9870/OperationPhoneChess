@@ -17,14 +17,15 @@ namespace PhoneChessProject
             { -1, 0, -1 }
         };
 
-        public List<ChessNode> nodes;
+        public List<List<ChessNode>> nodes;
 
         public Graph(NodeType type)
         {
-            nodes = new List<ChessNode>();
+            nodes = new List<List<ChessNode>>();
 
             for (int row = 0; row < Rows; row++)
             {
+                nodes.Add(new List<ChessNode>());
                 for (int col = 0; col < Columns; col++)
                 {
                     int val = _graph[row, col];
@@ -47,29 +48,28 @@ namespace PhoneChessProject
                         default:
                             break;
                     }
-
-                    n.GetPossibleMoves();
-                    this.nodes.Add(n);
+                    this.nodes[row].Add(n);
 
                     Console.WriteLine(val.ToString());
-
-                    this.addEdgesToNodes(n);
                 }
             }
         }
 
-        private void addEdgesToNodes(ChessNode n)
-        {
-            int row = n.Row;
-            int col = n.Column;
 
-            Console.WriteLine(currentMoves.Length);
+        public void AddEdges()
+        {
+            for (int row = 0; row < Rows; row++)
+            {
+                for (int col = 0; col < Columns; col++)
+                {
+                    nodes[row][col].DiscoverEdges(nodes, Rows, Columns);
+                }
+            }
         }
 
-        private bool isValidNode()
+        public void findNumberCombinations()
         {
-            return false;
-        }
 
+        }
     }
 }

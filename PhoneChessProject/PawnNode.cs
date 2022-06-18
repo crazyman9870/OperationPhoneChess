@@ -10,10 +10,8 @@ namespace PhoneChessProject
 {
     public class PawnNode : ChessNode
     {
-        public PawnNode(int value, int row, int column) : base(value)
+        public PawnNode(int value, int row, int column) : base(value, row, column)
         {
-            this.Row = row;
-            this.Column = column;
             this.multiDirection = false;
             this.diagonal = false;
         }
@@ -23,9 +21,27 @@ namespace PhoneChessProject
             return true;
         }
 
-        public override List<int[]> GetPossibleMoves()
+        public override void DiscoverEdges(List<List<ChessNode>> nodeGraph, int rowCount, int colCount)
         {
-            return null;
+            if (IsValidNode(Row, Column - 1, rowCount, colCount))
+            {
+                reachableNodes.Add(nodeGraph[Row][Column - 1]);
+            }
+            
+            if (IsValidNode(Row - 1, Column, rowCount, colCount))
+            {
+                reachableNodes.Add(nodeGraph[Row - 1][Column]);
+            }
+
+            if (IsValidNode(Row, Column + 1, rowCount, colCount))
+            {
+                reachableNodes.Add(nodeGraph[Row][Column + 1]);
+            }
+            
+             if (IsValidNode(Row + 1, Column, rowCount, colCount))
+            {
+                reachableNodes.Add(nodeGraph[Row + 1][Column]);
+            }
         }
     }
 }
