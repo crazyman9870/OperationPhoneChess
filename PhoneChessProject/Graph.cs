@@ -5,13 +5,21 @@ namespace PhoneChessProject
 {
     public class Graph
     {
-
+        /// <summary>
+        /// Defines the maximum boundries of the grid
+        /// </summary>
         public const int Rows = 4;
         public const int Columns = 3;
 
+        /// <summary>
+        /// Keeps track of all the phone number combinations that are possible
+        /// </summary>
         public int combinations { get; private set; }
 
-        private int[,] _graph = new int[Rows, Columns]
+        /// <summary>
+        /// Grid the graph will be based on
+        /// </summary>
+        private int[,] grid = new int[Rows, Columns]
         {
             { 1, 2, 3 },
             { 4, 5, 6 },
@@ -19,18 +27,26 @@ namespace PhoneChessProject
             { -1, 0, -1 }
         };
 
-        private List<List<ChessNode>> _nodes;
+        /// <summary>
+        /// Graph representation of the grid in ChessNode
+        /// </summary>
+        private List<List<ChessNode>> _nodesGraph;
 
+        /// <summary>
+        /// Contructor
+        /// With the defined grid generates the node graph with the appropriate type of ChessNode
+        /// </summary>
+        /// <param name="type">Type of ChessNode that will be used in the graph</param>
         public Graph(NodeType type)
         {
-            _nodes = new List<List<ChessNode>>();
+            _nodesGraph = new List<List<ChessNode>>();
 
             for (int row = 0; row < Rows; row++)
             {
-                _nodes.Add(new List<ChessNode>());
+                _nodesGraph.Add(new List<ChessNode>());
                 for (int col = 0; col < Columns; col++)
                 {
-                    int val = _graph[row, col];
+                    int val = grid[row, col];
                     ChessNode node = null;
                     switch (type)
                     {
@@ -44,42 +60,52 @@ namespace PhoneChessProject
                             node = new BishopNode(val, row, col);
                             break;
                         case NodeType.Rook:
+                            node = new RookNode(val, row, col);
                             break;
                         case NodeType.Queen:
+                            node = new QueenNode(val, row, col);
                             break;
                         case NodeType.King:
+                            node = new KingNode(val, row, col);
                             break;
                         default:
                             break;
                     }
-                    this._nodes[row].Add(node);
+                    this._nodesGraph[row].Add(node);
                 }
             }
         }
 
-
+        /// <summary>
+        /// Loops though each of the nodes in the graph and sets up the related edges
+        /// </summary>
         public void AddEdges()
         {
             for (int row = 0; row < Rows; row++)
             {
                 for (int col = 0; col < Columns; col++)
                 {
-                    _nodes[row][col].DiscoverEdges(_nodes, Rows, Columns);
+                    _nodesGraph[row][col].DiscoverEdges(_nodesGraph, Rows, Columns);
                 }
             }
         }
 
-        public void findNumberCombinations()
+        /// <summary>
+        /// Finds the number of phone nmuber combinations that can be created using the given ChessNode
+        /// Skips over values <= 1
+        /// Begins recursion on the graph
+        /// </summary>
+        public void FindNumberCombinations()
         {
             int count = 0;
             for (int row = 0; row < Rows; row++)
             {
                 for (int col = 0; col < Columns; col++)
                 {
-                    var node = _nodes[row][col];
+                    var node = _nodesGraph[row][col];
                     if (node.Value > 1)
                     {
-                        node.TraverseNode(_nodes, "", ref count);
+                        node.TraverseNode("", ref count);
                     }
                 }
             }

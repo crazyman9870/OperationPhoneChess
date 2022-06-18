@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 namespace PhoneChessProject
 {
+    /// <summary>
+    /// Enumeration of the different types of chess pieces
+    /// </summary>
     public enum NodeType
     {
         Pawn = 0,
@@ -12,6 +15,9 @@ namespace PhoneChessProject
         King
     }
 
+    /// <summary>
+    /// Enumeration of different directions a piece can move
+    /// </summary>
     public enum Direction
     {
         Up,
@@ -24,24 +30,37 @@ namespace PhoneChessProject
         DownLeft
     }
 
+    /// <summary>
+    /// Abstract class definition of chess nodes
+    /// </summary>
     public abstract class ChessNode
     {
-        //Value of the current node
+        /// <summary>
+        /// Value of the node
+        /// </summary>
         public int Value { get; set; }
 
+        /// <summary>
+        /// Row the current node resides on
+        /// </summary>
         public int Row { get; set; }
 
+        /// <summary>
+        /// Column the current node resides in
+        /// </summary>
         public int Column { get; set; }
 
-        //List of reachable nodes from this node
+        /// <summary>
+        /// List of reachable nodes from this node
+        /// </summary>
         public List<ChessNode> ReachableNodes { get; set; }
 
-        public bool MultiDirection { get; set; }
-
-        public bool Diagonal { get; set; }
-
-        public Direction CurrentDirection { get; set; }
-
+        /// <summary>
+        /// Base contrutctor for children to use
+        /// </summary>
+        /// <param name="value">value of the node</param>
+        /// <param name="row">row the node is on</param>
+        /// <param name="column">column the node is in</param>
         public ChessNode(int value, int row, int column)
         {
             this.Value = value;
@@ -60,12 +79,12 @@ namespace PhoneChessProject
         public abstract void DiscoverEdges(List<List<ChessNode>> nodeGraph, int rowCount, int colCount);
 
         /// <summary>
-        /// 
+        /// Recursively visits all reachable nodes from the current node
+        /// Stops when the depth of the recursive traversal reaches 7
         /// </summary>
-        /// <param name="nodeGraph"></param>
-        /// <param name="currentValue"></param>
-        /// <param name="count"></param>
-        public virtual void TraverseNode(List<List<ChessNode>> nodeGraph, string currentValue, ref int count)
+        /// <param name="currentValue">string represenation of the phone number</param>
+        /// <param name="count">current combination count</param>
+        public virtual void TraverseNode(string currentValue, ref int count)
         {
             if (this.Value < 0)
             {
@@ -81,7 +100,7 @@ namespace PhoneChessProject
 
             foreach (var node in ReachableNodes)
             {
-                node.TraverseNode(nodeGraph, currentValue, ref count);
+                node.TraverseNode(currentValue, ref count);
             }
         }
 

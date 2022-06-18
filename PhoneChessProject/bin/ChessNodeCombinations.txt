@@ -1,0 +1,6 @@
+Combinations for Pawn = 0
+Combinations for Knight = 952
+Combinations for Bishop = 2341
+Combinations for Rook = 49326
+Combinations for Queen = 751503
+Combinations for King = 124908
