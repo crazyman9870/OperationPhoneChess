@@ -8,25 +8,24 @@ using System.Collections.Generic;
 
 namespace PhoneChessProject
 {
-    public class PawnNode : Node
+    public class PawnNode : ChessNode
     {
-
-        //Value of the current node
-        public int Value { get; set; }
-
-        //List of reachable nodes from this node
-        public List<Node> reachableNodes { get; set; }
-
-        public PawnNode() : base()
+        public PawnNode(int value, int row, int column) : base(value)
         {
-            this.Value = 1;
-            reachableNodes = new List<Node>();            
+            this.Row = row;
+            this.Column = column;
+            this.multiDirection = false;
+            this.diagonal = false;
         }
 
-        public bool AddReachableNode()
-        { 
+        public override bool AddReachableNode()
+        {
             return true;
         }
 
+        public override List<int[]> GetPossibleMoves()
+        {
+            return null;
+        }
     }
 }

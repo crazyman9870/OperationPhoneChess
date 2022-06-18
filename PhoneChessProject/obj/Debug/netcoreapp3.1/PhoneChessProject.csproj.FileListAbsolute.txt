@@ -4,10 +4,11 @@ D:\GitHub\OperationPhoneChess\PhoneChessProject\bin\Debug\netcoreapp3.1\PhoneChe
 D:\GitHub\OperationPhoneChess\PhoneChessProject\bin\Debug\netcoreapp3.1\PhoneChessProject.runtimeconfig.dev.json
 D:\GitHub\OperationPhoneChess\PhoneChessProject\bin\Debug\netcoreapp3.1\PhoneChessProject.dll
 D:\GitHub\OperationPhoneChess\PhoneChessProject\bin\Debug\netcoreapp3.1\PhoneChessProject.pdb
-D:\GitHub\OperationPhoneChess\PhoneChessProject\obj\Debug\netcoreapp3.1\PhoneChessProject.csprojAssemblyReference.cache
 D:\GitHub\OperationPhoneChess\PhoneChessProject\obj\Debug\netcoreapp3.1\PhoneChessProject.csproj.CoreCompileInputs.cache
 D:\GitHub\OperationPhoneChess\PhoneChessProject\obj\Debug\netcoreapp3.1\PhoneChessProject.AssemblyInfoInputs.cache
 D:\GitHub\OperationPhoneChess\PhoneChessProject\obj\Debug\netcoreapp3.1\PhoneChessProject.AssemblyInfo.cs
 D:\GitHub\OperationPhoneChess\PhoneChessProject\obj\Debug\netcoreapp3.1\PhoneChessProject.dll
 D:\GitHub\OperationPhoneChess\PhoneChessProject\obj\Debug\netcoreapp3.1\PhoneChessProject.pdb
 D:\GitHub\OperationPhoneChess\PhoneChessProject\obj\Debug\netcoreapp3.1\PhoneChessProject.genruntimeconfig.cache
+D:\GitHub\OperationPhoneChess\PhoneChessProject\obj\Debug\netcoreapp3.1\PhoneChessProject.csproj.AssemblyReference.cache
+D:\GitHub\OperationPhoneChess\PhoneChessProject\obj\Debug\netcoreapp3.1\PhoneChessProject.GeneratedMSBuildEditorConfig.editorconfig
