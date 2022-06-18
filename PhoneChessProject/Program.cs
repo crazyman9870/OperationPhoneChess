@@ -6,7 +6,7 @@ namespace PhoneChessProject
     {
         static void Main(string[] args)
         {
-            for (var type = NodeType.Pawn; type <= NodeType.Knight; type++)
+            for (var type = NodeType.Pawn; type <= NodeType.Bishop; type++)
             {
                 Graph graph = new Graph(type);
                 graph.AddEdges();

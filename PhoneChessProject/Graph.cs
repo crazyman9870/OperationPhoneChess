@@ -41,6 +41,7 @@ namespace PhoneChessProject
                             node = new KnightNode(val, row, col);
                             break;
                         case NodeType.Bishop:
+                            node = new BishopNode(val, row, col);
                             break;
                         case NodeType.Rook:
                             break;

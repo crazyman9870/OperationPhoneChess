@@ -55,25 +55,5 @@ namespace PhoneChessProject
                 ReachableNodes.Add(nodeGraph[Row + 1][Column - 2]);
             }
         }
-
-        public override void TraverseNode(List<List<ChessNode>> nodeGraph, string currentValue, ref int count)
-        {
-            if (this.Value < 0)
-            {
-                return;
-            }
-
-            currentValue += this.Value;
-            if (currentValue.Length == 7)
-            {
-                count++;
-                return;
-            }
-
-            foreach (var node in ReachableNodes)
-            {
-                node.TraverseNode(nodeGraph, currentValue, ref count);
-            }
-        }
     }
 }

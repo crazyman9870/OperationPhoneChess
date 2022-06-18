@@ -65,7 +65,25 @@ namespace PhoneChessProject
         /// <param name="nodeGraph"></param>
         /// <param name="currentValue"></param>
         /// <param name="count"></param>
-        public abstract void TraverseNode(List<List<ChessNode>> nodeGraph, string currentValue, ref int count);
+        public virtual void TraverseNode(List<List<ChessNode>> nodeGraph, string currentValue, ref int count)
+        {
+            if (this.Value < 0)
+            {
+                return;
+            }
+
+            currentValue += this.Value;
+            if (currentValue.Length == 7)
+            {
+                count++;
+                return;
+            }
+
+            foreach (var node in ReachableNodes)
+            {
+                node.TraverseNode(nodeGraph, currentValue, ref count);
+            }
+        }
 
         /// <summary>
         /// Given a current row and column, determines if it falls within the bounds of rowCount and columnCount of the grid
